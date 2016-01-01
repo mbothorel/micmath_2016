@@ -58,3 +58,10 @@ def rangLettre(lettre)
 	end
 	return resultat
 end
+
+def calculMot(mot)
+	1.upto(mot.length) {
+		|lettreDuMot| resultat = resultat * rangLettre(mot[lettreDuMot])
+	}
+	return resultat
+end
