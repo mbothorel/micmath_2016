@@ -3,7 +3,7 @@
 # Trouve un mot en calculant le produit de ses lettres
 # "aspell -d fr dump master" donne la liste des mots français
 
-def rangLettre(lettre)
+def rang_lettre(lettre)
 	if lettre=="a" || lettre=="A" || lettre=="à" then
 		resultat_rang_lettre=1
 	elsif lettre=="b" || lettre=="B" then
@@ -62,10 +62,10 @@ def rangLettre(lettre)
 	return resultat_rang_lettre.to_i
 end
 
-def calculMot (mot)
+def calcul_mot (mot)
 	resultat = 1
-	0.upto((mot.length)-1) do |lettreDuMot|
-		resultat *= rangLettre(mot[lettreDuMot])
+	0.upto((mot.length)-1) do |lettre_du_mot|
+		resultat *= rang_lettre(mot[lettre_du_mot])
 	end
 	return resultat
 end
@@ -78,7 +78,7 @@ end
 nombre = ARGV[0].to_i
 
 IO.readlines('dictionnaire').each do |mot_du_dictionnaire|
-	resultat_multiplication = calculMot(mot_du_dictionnaire).to_i
+	resultat_multiplication = calcul_mot(mot_du_dictionnaire).to_i
 	if nombre == resultat_multiplication
 		puts "Le mot #{mot_du_dictionnaire.chomp} correspond au nombre #{nombre}"
 	end		
